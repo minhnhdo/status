@@ -1,6 +1,6 @@
 # status
 
-A [Hakyll](http://) inspired static site generator written in Clojure.
+A [Hakyll](http://jaspervdj.be/hakyll/) inspired static site generator written in Clojure.
 
 ## Usage
 
