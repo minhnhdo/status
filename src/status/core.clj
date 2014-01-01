@@ -130,7 +130,6 @@
                                                       :template])
                                              compiled)
                                            compiled)
-                                         (status.utils/debug
                                          (merge
                                            context
                                            (if (contains? metadata :template)
@@ -138,7 +137,7 @@
                                                      [(:template metadata)
                                                       :metadata])
                                              {})
-                                           metadata)))]
+                                           metadata))]
                             (with-open [out-stream (io/writer file-path)]
                               (.write out-stream put-in)))))))
                   paths)))))
