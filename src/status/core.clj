@@ -79,12 +79,12 @@
       (throw (IllegalArgumentException. "Duplicate names for templates."))
       (loop [remaining (apply hash-map (apply concat s))
              cache {}]
-        (let [k (key (first remaining))
-              new-cache (compile-template k remaining cache)
-              new-remaining (apply dissoc remaining (keys new-cache))]
-          (if-not (empty? new-remaining)
-            (recur new-remaining new-cache)
-            cache))))))
+        (if (not (seq remaining))
+          cache
+          (let [k (key (first remaining))
+                new-cache (compile-template k remaining cache)
+                new-remaining (apply dissoc remaining (keys new-cache))]
+            (recur new-remaining new-cache)))))))
 
 (defn compile-paths
   [in-path out-path compiled-templates context]
